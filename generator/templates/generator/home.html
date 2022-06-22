@@ -1,11 +1,25 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 <div class="container text-center">
-  <h1 class="alert alert-success">Password Generator</h1>
-  <br>
-  <h3>Generate your password now</h3>
-
-  <form action="{% url 'password' %}">
-    <input type="submit" value="Generate Password" class="btn btn-primary">
-  </form>
+  <h1 class="alert alert-success">Generated Password: <p id="demo"></p></h1>
+  <a href="{% url 'home' %}" id ="hello" class="alert alert-success"></a>
+  <button onclick="myFunction()" class="btn btn-primary">Generate Password</button>
 </div>
+  <script>
+    function myFunction(){
+      document.getElementById("demo").innerHTML = "your password is:"+" "+ "{{password}}","generator/password.html";
+      document.getElementById("hello").innerHTML = "again";
+
+    }
+    function next(){
+      document.getElementById("demo").innerHTML = "your password is:"+" "+ "{{password}}";
+    }
+  </script>
+  <button onclick="copyPassword()"></button>
+</div>
+
+<div class="container text-center">
+  <h1 class="alert alert-success">Generate your password with copy option</h1>
+  <form action="{% url 'password' %}">
+    <input type="submit" value="Generate Password in another page"  onclick="myFunction()" class="btn btn-primary">
+  </form>

@@ -18,7 +18,8 @@ def randpassword():
         else:
             return password
 def home(request):
-    return render(request, 'generator/home.html')
+    password=randpassword()
+    return render(request, 'generator/home.html', {'password':password})
 
 def about(request):
     return render(request, 'generator/about.html')
